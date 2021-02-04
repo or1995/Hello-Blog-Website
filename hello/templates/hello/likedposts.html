@@ -1,0 +1,68 @@
+{% extends "hello/base.html" %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'hello/posts.css' %}">
+{% endblock css%}
+
+{% block content %}
+	{% for thepost in likedposts %}
+		<div class="postback">
+			<div class="posthead">
+				<a href="{% if thepost.author == user %}{% url 'myprofile' %}{% else %}{% url 'profile' thepost.author.id %}{% endif %}">
+		          <div class="posthead-img">
+		          <img src="{{thepost.author.profile.profileimage.url}}" >
+		          </div>
+        		</a>
+				<div class="posthead-text">
+					<a href="{% url 'fullpost' thepost.id %}" class="posttitle">{{ thepost.title }}</a>
+					<div class="postsubtitle">
+						<h3 class="postusername">{{ thepost.author.username }} in</h3>
+						<h3 class="postdate">{{ thepost.pub_date|date:"d M, Y H:i" }}</h3>
+					</div>
+				</div>
+			</div>
+			<div class="postcontent">
+				{% if thepost.postimage %}
+		          <img src="{{thepost.postimage.url}}" class="postcontent-img">
+		        {% endif %}
+				<p class="postcontent-text">{{ thepost.content }}</p>
+			</div>
+			<div class="postbottom">
+        <div class="postbottomlikesdiv">
+          <a class="postbottomicon {% for likeuser in thepost.likedusers.all %}{% if likeuser == user  %}hideunlike{% endif %}{% endfor%}" href="{% url 'likepost' thepost.id %}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6.28 3c3.236.001 4.973 3.491 5.72 5.031.75-1.547 2.469-5.021 5.726-5.021 2.058 0 4.274 1.309 4.274 4.182 0 3.442-4.744 7.851-10 13-5.258-5.151-10-9.559-10-13 0-2.676 1.965-4.193 4.28-4.192zm.001-2c-3.183 0-6.281 2.187-6.281 6.192 0 4.661 5.57 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-4.011-3.097-6.182-6.274-6.182-2.204 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248z"/></svg>
+        </a>
+        <a class="postbottomicon likesup {% for likeuser in thepost.likedusers.all %}{% if likeuser == user  %}showlike{% endif %}{% endfor%}" href="{% url 'likepost' thepost.id %}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"/></svg>  
+        </a>
+        <h3 class="postbottomlikes">{{ thepost.likes }}</h3>
+        </div>
+        <a class="postbottomicon" href="{% url 'fullpost' thepost.id %}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 3c5.514 0 10 3.476 10 7.747 0 4.272-4.48 7.748-9.986 7.748-.62 0-1.092-.046-1.759-.097-1 .776-1.774 1.403-3.485 1.962.26-1.383-.113-2.259-.514-3.259-2.383-1.505-4.256-3.411-4.256-6.354 0-4.271 4.486-7.747 10-7.747zm0-2c-6.627 0-12 4.363-12 9.747 0 3.13 1.816 5.916 4.641 7.699.867 2.167-1.084 4.008-3.143 4.502 3.085.266 6.776-.481 9.374-2.497 7.08.54 13.128-3.988 13.128-9.704 0-5.384-5.373-9.747-12-9.747z"/></svg>
+        </a>
+      </div>
+		</div>
+	{% endfor %}
+	{% if is_paginated %}
+    <div class="paginator">
+      {% if page_obj.has_previous %}
+        <a class="paginatorpage" href="?page=1">&#171;</a>
+        <a class="paginatorpage" href="?page={{page_obj.previous_page_number}}">&#8249;</a>
+      {% endif %}
+      {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+          <a class="paginatorpagecurrent" href="?page={{ num }}">{{ num }}</a>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+        <a class="paginatorpage" href="?page={{num}}">{{num}}</a>
+        {% endif %}
+      {% endfor %}
+      {% if page_obj.has_next %}
+        <a class="paginatorpage" href="?page={{page_obj.next_page_number}}">&#8250;</a>
+        <a class="paginatorpage" href="?page={{page_obj.paginator.num_pages}}">&#187;</a>
+      {% endif %}
+  {% endif %}
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}

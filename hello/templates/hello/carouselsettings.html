@@ -1,0 +1,22 @@
+{% extends "hello/base.html" %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'hello/posts.css' %}">
+{% endblock css%}
+
+{% block content %}
+	<div class="createpost">
+		<h2 class="createpostheader">Carousel Settings</h2>
+		<div class="formwidth editcats">
+			{% for carousel in carouselpages %}
+			<div class="cateditdiv">
+				<h3 class="editcatlink">Carousel Page {{carousel.id}}</h3>
+				<div>
+					<a href="{% url 'editcarousel' carousel.id %}" class="cateditbutton">&#9998;</a>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock content%}

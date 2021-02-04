@@ -1,0 +1,20 @@
+{% extends "hello/base.html" %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'hello/posts.css' %}">
+{% endblock css%}
+
+{% block content %}
+	<div class="createpost">
+		<h2 class="createpostheader">Category Deletion</h2>
+		<div class="formwidth">
+			<h2 class="deletionmessage">Are You Sure You Want to Delete the {{ category.title }} Category?</h2>
+			<form class="deleteform" method="post">
+				{% csrf_token %}
+				<button class="deleteconfirmbutton" type="submit">Yes, delete</button>
+	    		<a href="{% url 'categorysettings' %}" class="deletecancelbutton">Cancel</a>
+			</form>
+		</div>
+	</div>
+{% endblock content%}

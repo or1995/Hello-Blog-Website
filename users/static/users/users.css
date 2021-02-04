@@ -1,0 +1,286 @@
+.registerdiv {
+	width: 100%;
+	height: 100%;
+	background: var(--black);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-image: url("./media/back.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.registerdivoverlay {
+	position: absolute;
+	object-fit: cover;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background: rgb(0,0,0);
+	background: linear-gradient(180deg, rgba(0,0,0,.5) 0%, rgba(255,255,255,0) 14%, rgba(255,255,255,0) 87%, rgba(0,0,0,.5) 100%);
+	z-index: 2;
+}
+
+.nav-logo-register {
+	position: absolute;
+	top: 0;
+	left: 1rem;
+	margin: 0;
+}
+
+.nav-logo-register a {
+	text-shadow: 1px 1px 5px rgba(0,0,0,0.47);
+	z-index: 200;
+	text-decoration: none;
+	color: var(--main);
+	font-size: 3rem;
+	margin: 0;
+	font-family: 'Pacifico', cursive;
+}
+
+.registerform {
+	z-index: 10;
+	min-height: 23rem;
+	width: 24rem;
+	background-color: var(--very-very-light-grey);
+	box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.1);
+	box-sizing: border-box;
+	border-radius: 5px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	padding-bottom: 1.5rem;
+}
+
+.registertype {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.5rem;
+	color: var(--main-light);
+	margin: 0;
+	margin-bottom: 1.5rem;
+	font-weight: 500;
+	padding-top: .7rem;
+	background-color: var(--black);
+	width: 100%;
+	padding-bottom: 1rem;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	padding-left: 1rem;
+	box-sizing: border-box;
+}
+
+.helptext {
+	display: none;
+}
+
+.registerform input {
+	padding-right: 1rem;
+	padding-left: 1rem;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	font-size: 1rem; 
+	width: 90%;
+	height: 2.5rem;
+	border-radius: 5px;
+	border: solid 1px var(--main-light);
+	margin-bottom: 1rem;
+	box-sizing: border-box;
+	background-color: #fffaf7;
+}
+
+.registerform input:focus {
+	outline: none;
+	border: solid 1px var(--main);
+	background-color: #fff;
+}
+
+.registerform br {
+	display: none;
+}
+
+.registerform label {
+	width: 90%;
+	color: var(--black);
+	font-family: 'Open Sans', sans-serif;
+	margin-bottom: .2rem;
+}
+
+.errorlist {
+	order: 100;
+	font-family: 'Open Sans', sans-serif;
+	width: 90%;
+}
+
+.registerbutton {
+	margin-top: .5rem;
+	align-self: center;
+	border: none;
+	width: 8rem;
+	height: 2.5rem;
+	background-color: var(--main-light);
+	border-radius: 5px;
+	color: #fff;
+	font-family: 'Open Sans', sans-serif;
+	cursor: pointer;
+	transition: all .3s;
+	font-size: 1rem;
+	outline: none;
+}
+
+.registerbutton:focus {
+	outline: none;
+}
+
+.registerbutton:hover {
+	background-color: var(--main);
+}
+
+.switchregister {
+	order: 101; 
+	font-family: 'Open Sans', sans-serif;
+	color: var(--black-light);
+	font-size: .8rem;
+	margin-top: 1.5rem;
+}
+
+.switchregister a {
+	text-decoration: none;
+	color: var(--main);
+
+}
+
+/* account settings */
+
+.accountsettings {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 1rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+.userpofileheader {
+	font-family: 'Open Sans', sans-serif;
+	color: var(--main);
+	font-weight: 500;
+	margin: 0;
+}
+
+label[for="id_bio"] {
+	width: 100%;
+	display: block;
+}
+
+
+@media screen and (max-width: 1000px) {
+
+	.nav-logo-register {
+		display: block;
+		width: 100%;
+		text-align: center;
+		left: 0;
+		margin-bottom: 2rem;
+	}
+
+	.registerform {
+		width: 23rem;
+		min-height: 60%; 
+		margin-top: 2rem;
+	}
+	/*
+	.registertype {
+		padding-top: 1rem;
+		padding-bottom: 2rem;
+		padding-left: 2rem;
+		font-size: 4rem;
+	}
+
+	.registerform input {
+		height: 3rem;
+		border-radius: 10px;
+	}
+
+	.registerform label {
+		font-size: 2rem;
+		margin-top: 2rem;
+	}
+
+	.registerbutton {
+		width: 10rem;
+		height: 3rem;
+		font-size:2rem;
+		border-radius: 10px;
+		margin-top: 5rem;
+	}
+
+	.switchregister {
+		font-size: 2rem;
+	}
+
+	.nav-logo-register a {
+		font-size: 6rem;
+	}*/
+
+}
+
+
+@media screen and (max-width: 900px) {
+
+	.nav-logo-register {
+		display: block;
+		width: 100%;
+		text-align: center;
+		left: 0;
+		margin-bottom: 2rem;
+		margin-top: 1rem;
+	}
+
+	.registerform {
+		width: 23rem;
+		min-height: 60%; 
+		margin-top: -1rem;
+	}
+	/*
+	.registertype {
+		padding-top: 1rem;
+		padding-bottom: 2rem;
+		padding-left: 2rem;
+		font-size: 4rem;
+	}
+
+	.registerform input {
+		height: 3rem;
+		border-radius: 10px;
+	}
+
+	.registerform label {
+		font-size: 2rem;
+		margin-top: 2rem;
+	}
+
+	.registerbutton {
+		width: 10rem;
+		height: 3rem;
+		font-size:2rem;
+		border-radius: 10px;
+		margin-top: 5rem;
+	}
+
+	.switchregister {
+		font-size: 2rem;
+	}
+
+	.nav-logo-register a {
+		font-size: 6rem;
+	}*/
+
+}

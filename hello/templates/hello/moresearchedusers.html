@@ -1,0 +1,55 @@
+{% extends "hello/base.html" %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'hello/posts.css' %}">
+{% endblock css%}
+
+{% block content %}
+  <div class="searcheditems addmarginbottom">
+  <h1 class="searchtitle">Users with the word "{{searchterm}}"</h1>
+	{% for theuser in searchedusers %}
+    <div class="searcheditem">
+      <div class="searcheduserprofile">
+        <a href="{% if theuser == user %}{% url 'myprofile' %}{% else %}{% url 'profile' theuser.id %}{% endif %}">
+            <div class="posthead-img imgmargbot0">
+              <img src="{{theuser.profile.profileimage.url}}" >
+            </div>
+          </a>
+        <a href="{% if theuser == user %}{% url 'myprofile' %}{% else %}{% url 'profile' theuser.id %}{% endif %}">{{theuser.username}}</a>
+        </div>
+        <h3 class="searcheduserbio">{{theuser.profile.bio}}</h3>
+        {% if theuser == user %}
+          <div style="width: 4.8rem"></div>
+        {% else %}
+          <a class="searcheduserfollow" href="{% url 'followprofile' theuser.profile.id %}"><span class="hidespan {% for follower in theuser.profile.followers.all %}
+        {% if follower == user.profile  %}
+          showspan
+        {% endif %}
+      {% endfor%}">Un</span>Follow</a>
+        {% endif %}
+      </div>
+	{% endfor %}
+</div>
+{% if is_paginated %}
+    <div class="paginator">
+      {% if page_obj.has_previous %}
+        <a class="paginatorpage" href="?page=1">&#171;</a>
+        <a class="paginatorpage" href="?page={{page_obj.previous_page_number}}">&#8249;</a>
+      {% endif %}
+      {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+          <a class="paginatorpagecurrent" href="?page={{ num }}">{{ num }}</a>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+        <a class="paginatorpage" href="?page={{num}}">{{num}}</a>
+        {% endif %}
+      {% endfor %}
+      {% if page_obj.has_next %}
+        <a class="paginatorpage" href="?page={{page_obj.next_page_number}}">&#8250;</a>
+        <a class="paginatorpage" href="?page={{page_obj.paginator.num_pages}}">&#187;</a>
+      {% endif %}
+  {% endif %}
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}

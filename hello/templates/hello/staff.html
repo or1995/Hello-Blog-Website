@@ -1,0 +1,16 @@
+{% extends "hello/base.html" %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'hello/posts.css' %}">
+{% endblock css%}
+
+{% block content %}
+	<div class="createpost">
+		<h2 class="createpostheader">Staff Control Panel</h2>
+		<div class="sitesettings">
+			<a href="{% url 'categorysettings' %}">Categories Settings</a>
+			<a href="{% url 'carouselsettings' %}">Carousel Settings</a>
+		</div>
+	</div>
+{% endblock content%}

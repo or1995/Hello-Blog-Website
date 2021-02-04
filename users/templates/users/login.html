@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello - Register</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'hello/main.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'users/users.css' %}">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="theme-color" content="#313638" />
+</head>
+<body>
+	<div class="registerdiv">
+		<div class="registerdivoverlay">
+		<div class="nav-logo-register">
+			<a href="/">Hello</a>
+		</div>
+		</div>
+		<form method="post" class="registerform">
+			<h3 class="registertype">Sign in</h3>
+    		{% csrf_token %}
+    		{{ form }}
+    		<button type="submit" class="registerbutton">Sign in</button>
+    		<h3 class="switchregister">Don't have an account? <a href="{% url 'register' %}">Sign up</a></h3>
+		</form>
+	</div>
+</body>
+</html>

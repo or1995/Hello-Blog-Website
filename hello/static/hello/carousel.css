@@ -4,7 +4,7 @@
 	display: grid;
   margin-top: .4rem;
 	width: 99%;
-	height: 30rem;
+	height: 40rem;
 	grid-template-rows: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
@@ -30,7 +30,7 @@
 .carousel__body__el {
     opacity: 0;
     width: 100%;
-    height: 100%;
+    height: 40rem;
     display: grid;
     align-items: center;
     justify-content: center;
@@ -78,8 +78,9 @@
 	align-self: center;
 	grid-column-start: 1;
 	grid-column-end: 5;
-	grid-row-start: 8;
-	grid-row-end: 10;
+	grid-row-start: 6;
+  grid-row-end: 9;
+  margin-bottom: -14rem;
 	box-sizing: border-box;
   /*width: 100%;*/
   background-color: var(--main);

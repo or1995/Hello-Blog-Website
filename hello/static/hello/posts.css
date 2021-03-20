@@ -992,8 +992,8 @@ label[for='id_backgroundimage'] {
 	border-radius: 5px;
 	padding: 1rem;
 	box-sizing: border-box;
-	width: 16rem;
-	height: 2rem;
+	width: 90%;
+	height: 2.2rem;
 	margin-right: -2rem;
 	color: var(--very-very-light-grey);
 	font-family: 'Open Sans', sans-serif;

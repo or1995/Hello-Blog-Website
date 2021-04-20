@@ -1,2 +1,2 @@
 # Hello-Blog-Website
-Blog website built using Django framework , html, css and simple javascript code(for the carousel)
+Blog website built using Django framework , html, css and simple javascript code

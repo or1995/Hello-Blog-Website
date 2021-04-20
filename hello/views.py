@@ -82,7 +82,7 @@ def followprofile(request, profile_id):
 class Favposts(generic.ListView):
 	paginate_by = 8
 	model = Post
-	template_name= 'hello/LikedPosts.html'
+	template_name= 'hello/likedPosts.html'
 	context_object_name = 'likedposts'
 
 	@method_decorator(login_required)

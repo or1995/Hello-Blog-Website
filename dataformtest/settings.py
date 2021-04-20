@@ -25,7 +25,7 @@ SECRET_KEY = 'z1o&m60@4x+7arx^q45tsr#jwgg9&q19mb0hi*uaa=%ms-!2w%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['ec2-18-188-211-36.us-east-2.compute.amazonaws.com']
 
 
 # Application definition
@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'hello',
         'USER': 'postgres',
         'PASSWORD': 'omar1995',
-        'HOST': 'localhost',
+        'HOST': 'hello.cpwawu3m07tu.us-east-2.rds.amazonaws.com',
         'PORT': '5432',
     }
 }

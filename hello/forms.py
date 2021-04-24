@@ -34,7 +34,7 @@ class CarouselForm(forms.ModelForm):
 
 	class Meta:
 		model = Carousel
-		fields = ['title','description','carouselimage']
+		fields = ['title','description','carlink','carouselimage']
 
 
 class CommentForm(forms.ModelForm):

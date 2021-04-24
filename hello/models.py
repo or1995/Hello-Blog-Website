@@ -70,6 +70,7 @@ class Carousel(models.Model):
 	title = models.CharField(max_length=200)
 	description = models.CharField(max_length=200)
 	carouselimage = models.ImageField(default='Cbdefault.png', upload_to='carousel_pics')
+	carlink= models.CharField(max_length=200, blank=True)
 
 	def  __str__(self):
 		return self.title

@@ -128,7 +128,7 @@ body {
 
 .content-sidebar {
 	height: 100%;
-	width: 20vw;
+	width: 20rem;
 	background-color: var(--black);
 	background: linear-gradient(146deg, var(--black) 0%, var(--black) 69%, var(--black-light) 100%); /*Nice*/
 	display: flex;
@@ -171,11 +171,12 @@ body {
 
 .titlebox {
 	padding-left: 3.5rem;
+	margin-bottom: .5rem;
 }
 
 .content-block {
 	height: 100%;
-	width: 80vw;
+	flex: 1;
 	box-sizing: border-box;
 	overflow-y: scroll;
 	display: flex;
@@ -210,7 +211,7 @@ body {
 }
 
 .titlebox {
-	padding-left: 6rem;
+	padding-left: 4rem;
 }
 
 .title {
@@ -229,6 +230,7 @@ body {
 	flex-direction: column;
 	align-items: flex-start;
 	box-sizing: border-box;
+	margin-bottom: .5rem;
 	/*border-bottom: solid 1px var(--black-light);*/
 }
 
@@ -242,7 +244,7 @@ body {
 	margin-bottom: .2rem;
 	transition: all .3s;
 	/*border-top: solid 1px var(--black-light);*/
-	padding-left: 3rem;
+	padding-left: 1.5rem;
 	display: block;
 }
 
@@ -306,12 +308,8 @@ body {
 
 @media screen and (max-width: 1110px){
 	.content-sidebar {
-		width: 25vw;
+		width: 20rem;
 		height: -webkit-fill-available;
-	}
-
-	.content-block {
-		width: 75vw;
 	}
 }
 
@@ -327,8 +325,8 @@ body {
 	}
 
 	.content-sidebar {
-		width: 0;
-		transform: translateX(-25vw);
+		width: 20rem;
+		transform: translateX(-100%);
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -336,7 +334,6 @@ body {
 	}
 
 	.shownsidebar {
-		width: 15rem;
 		transform: translateX(0vw);
 		transition: all .3s;
 	}

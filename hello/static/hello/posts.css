@@ -1,5 +1,5 @@
 .postback {
-	width: 94%;
+	width: 98%;
 	background-color: var(--very-very-light-grey);
 	background: linear-gradient(135deg, var(--white) 0%, var(--very-very-light-grey) 100%);
 	box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.1);
@@ -773,7 +773,7 @@ label[for='id_backgroundimage'] {
 
 .commentsection {
 	display: flex;
-	width: 94%;
+	width: 98%;
 	align-items: center;
 	justify-content: space-between;
 	margin-top: .2rem;

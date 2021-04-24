@@ -352,10 +352,12 @@ def edit_carousel(request, carousel_id):
 			cartitle = form.cleaned_data['title']
 			cardescription = form.cleaned_data['description']
 			carimage = form.cleaned_data['carouselimage']
+			carlink = form.cleaned_data['carlink']
 			c = Carousel.objects.get(pk = carousel_id)
 			c.title = cartitle
 			c.description = cardescription
 			c.carouselimage = carimage
+			c.carlink = carlink
 			c.save()
 			# redirect to a new URL:
 			return HttpResponseRedirect('/')

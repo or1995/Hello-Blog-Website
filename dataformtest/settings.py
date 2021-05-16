@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'dataformtest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'hello',
+        'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'omar1995',
         'HOST': 'hello.cfyxlskb5ame.us-east-2.rds.amazonaws.com',
